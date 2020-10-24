@@ -1,10 +1,9 @@
-import ListComponent from './components/ListComponent'
+import UserListComponent from './components/UserListComponent'
 
 function App() {
   return (
     <div className="App">
-      <ListComponent lista='Minha Lista' />
-      <ListComponent lista='Minha Lista 2' />
+      <UserListComponent />
     </div>
   );
 }
