@@ -3,7 +3,8 @@ import ListComponent from './components/ListComponent'
 function App() {
   return (
     <div className="App">
-      <ListComponent />
+      <ListComponent lista='Minha Lista' />
+      <ListComponent lista='Minha Lista 2' />
     </div>
   );
 }
