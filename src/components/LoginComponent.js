@@ -19,6 +19,11 @@ class LoginComponent extends React.Component {
         this.setState({ password: event.target.value })
     }
 
+    logout(){
+        localStorage.removeItem('token')
+        this.setState({ token: null })
+    }
+
     handleSubmit(event) {
         const url = "http://localhost:8000/api-token-auth/"
 
@@ -58,7 +63,10 @@ class LoginComponent extends React.Component {
             )
         } else {
             return (
-                <UserListComponent />
+                <div>
+                    <UserListComponent />
+                    <button onClick={() => this.logout()}>Logout</button>
+                </div>
             )
         }
     }
