@@ -1,8 +1,14 @@
 import React from 'react'
 
 function ItemComponent(props) {
+    const status = props.status
+
+
     return (
-        <li>Item desc.: {props.name}</li>
+        <div>
+            <li>Item desc.: {props.name}</li>
+            <p>{props.status ? 'Finalizado' : 'Em aberto'}</p>
+        </div>
     )
 }
 
