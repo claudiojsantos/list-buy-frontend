@@ -10,7 +10,7 @@ class UserListComponent extends React.Component {
                 'content-type': 'application/json'
             }
         }
-        config.headers['Authorization'] = 'Token e74d9fdf6d929a4f141793618e4804a5394c7511'
+        config.headers['Authorization'] = 'Token fe6fa90860115b5515d81eae15049f706980dd98'
 
         var url = 'http://localhost:8000/list/'
         const response = await fetch(url, config)
