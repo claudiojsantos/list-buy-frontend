@@ -1,4 +1,5 @@
 import React from 'react'
+import UserListComponent from './UserListComponent'
 
 class LoginComponent extends React.Component {
     constructor(props) {
@@ -32,23 +33,34 @@ class LoginComponent extends React.Component {
 
         fetch(url, requestOptions)
             .then(response => response.json())
-            .then(data => localStorage.setItem('token', data.token))
+            .then(data => {
+                localStorage.setItem('token', data.token)
+                this.setState({token: data.token})
+            })
 
         event.preventDefault()
     }
 
 
     render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Name:
-                    <input type="text" value={this.state.username} onChange={this.handleChangeUsername}/>
-                    <input type="password" value={this.state.password} onChange={this.handleChangePassword}/>
-                </label>
-                <input type="submit" value="Submit"/>
-            </form>
-        )
+        const token = localStorage.getItem('token')
+
+        if (!token) {
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Name:
+                        <input type="text" value={this.state.username} onChange={this.handleChangeUsername}/>
+                        <input type="password" value={this.state.password} onChange={this.handleChangePassword}/>
+                    </label>
+                    <input type="submit" value="Submit"/>
+                </form>
+            )
+        } else {
+            return (
+                <UserListComponent />
+            )
+        }
     }
 }
 
